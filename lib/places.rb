@@ -2,6 +2,11 @@ class Places
   @@places = []
 
   define_method(:initialize) do |place|
+    place_split = place.split()
+    place_split.each() do |word|
+      word.capitalize!()
+    end
+    place = place_split.join(" ")
     @place = place
   end
 

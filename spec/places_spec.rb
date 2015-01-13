@@ -14,11 +14,11 @@ describe(Places) do
     end
   end
 
-describe('.clear') do
-  it("clears list of places") do
-    expect(Places.clear()).to(eq([]))
+  describe('.clear') do
+    it("clears list of places") do
+      expect(Places.clear()).to(eq([]))
+    end
   end
-end
 
   describe('.all') do
 
@@ -37,7 +37,6 @@ end
     end
 
   end
-
 
 
 

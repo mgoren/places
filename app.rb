@@ -9,11 +9,12 @@ get("/") do
 end
 
 post("/confirmation") do
-  @place = params.fetch('place')
-  if @place != ""
-    place = Places.new(@place)
-    place.save()
+  place = params.fetch('place')
+  if place != ""
+    new_place = Places.new(place)
+    new_place.save()
   end
+  @place = new_place.place()
   erb(:confirmation)
 end
 
