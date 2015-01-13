@@ -25,8 +25,4 @@ class Places
   define_method(:place) do
     @place
   end
-
-
-
-
 end
