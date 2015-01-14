@@ -26,34 +26,4 @@ class Person
     end
   end
 
-
 end
-
-
-
-
-
-
-
-
-# OLD
-# class Person
-#
-#   define_method(:initialize) do
-#     @place_names = []
-#   end
-#
-#   define_method(:add_place) do |place_name|
-#     place_name_split = place_name.split()
-#     place_name_split.each() do |word|
-#       word.capitalize!()
-#     end
-#     place_name = place_name_split.join(" ")
-#     @place_names.push(place_name)
-#   end
-#
-#   define_method(:show_places) do
-#     @place_names
-#   end
-#
-# end

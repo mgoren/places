@@ -4,39 +4,45 @@ also_reload('./lib/**/*.rb')
 require('./lib/places')
 require('./lib/place')
 require('./lib/person')
-require('./lib/people')
 require('pry')
 
-get("/") do
-  erb(:index)
-end
-
 post("/confirmation") do
-
+  username = params.fetch('username')
   place = params.fetch('place')
   if place != ""
     new_place = Place.new(place)
-    Person.search_users("mike").get_places().add_place(new_place)
+    Person.search_users(username).get_places().add_place(new_place)
     @place = new_place.get_place_name()
   else
     @place = place
   end
-  @name = Person.search_users("mike").get_name()
-  redirect("/:name")
+  @name = Person.search_users(username).get_name()
+  url = "/".concat(username)
+  redirect(url)
 end
 
-get("/:name/reset") do
-  Person.search_users("mike").get_places().clear()
-  erb(:reset)
+post("/reset") do
+  name = params.fetch('username')
+  Person.search_users(username).get_places().clear()
+  url = "/".concat(username)
+  redirect(url)
 end
-
 
 get("/:name") do
-  @username = params.fetch('name')
+  name = params.fetch('name')
+  @places = Person.search_users(name).get_places().all()
+  @username = name
+  erb(:main)
+end
+
+post("/adduser") do
+  @username = params.fetch('username')
   user = Person.new(@username)
   Person.add_user(user)
+  url = "/".concat(@username)
+  redirect(url)
+end
 
-  @places = Person.search_users("mike").get_places().all()
+get("/") do
   erb(:index)
-
 end

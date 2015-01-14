@@ -1,19 +1,7 @@
-<h2>Places Visited:</h2>
-<% if @places == [] %>
-  <p>You have been nowhere?</p>
-<% else %>
-  <ul>
-    <% @places.each() do |place| %>
-      <li><%= place.get_place_name() %></li>
-    <% end %>
-  </ul>
-<% end %>
-<h2>Add a new location:</h2>
-<form action = "/confirmation" method="POST">
+<form action = "/adduser" method="POST">
   <div class="form-group">
-    <label class="form-label" for="place">Enter new location:</label>
-    <input id="place" name="place" class="form-control" type="text" autofocus>
+    <label class="form-label" for="username">Enter username:</label>
+    <input id="username" name="username" class="form-control" type="text">
   </div>
-  <button type="submit" class="button-go">Add</button>
+  <button type="submit" class="button-go">Go</button>
 </form>
-<a href="/reset" type="button" class="button-reset">Clear list</a>
