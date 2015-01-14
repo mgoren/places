@@ -1,28 +1,19 @@
 class Places
-  @@places = []
 
-  define_method(:initialize) do |place|
-    place_split = place.split()
-    place_split.each() do |word|
-      word.capitalize!()
-    end
-    place = place_split.join(" ")
-    @place = place
+  define_method(:initialize) do
+    @places_list = []
   end
 
-  define_singleton_method(:clear) do
-    @@places = []
+  define_method(:add_place) do |place|
+    @places_list.push(place)
   end
 
-  define_singleton_method(:all) do
-    @@places
+  define_method(:clear) do
+    @places_list = []
   end
 
-  define_method(:save) do
-    @@places.push(self)
+  define_method(:all) do
+    @places_list
   end
 
-  define_method(:place) do
-    @place
-  end
 end

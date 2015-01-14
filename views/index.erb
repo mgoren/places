@@ -4,7 +4,7 @@
 <% else %>
   <ul>
     <% @places.each() do |place| %>
-      <li><%= place.place() %></li>
+      <li><%= place.get_place_name() %></li>
     <% end %>
   </ul>
 <% end %>
