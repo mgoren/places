@@ -55,3 +55,9 @@ body {
   color:#FFFEF6;
   text-decoration:none;
 }
+
+select {
+  clear: both;
+  float: left;
+  margin-top: 20px;
+}

@@ -22,16 +22,16 @@ post("/confirmation") do
 end
 
 post("/reset") do
-  name = params.fetch('username')
+  username = params.fetch('username')
   Person.search_users(username).get_places().clear()
   url = "/".concat(username)
   redirect(url)
 end
 
-get("/:name") do
-  name = params.fetch('name')
-  @places = Person.search_users(name).get_places().all()
-  @username = name
+get("/:username") do
+  @username = params.fetch('username')
+  @places = Person.search_users(@username).get_places().all()
+  @people = Person.get_all_usernames()
   erb(:main)
 end
 

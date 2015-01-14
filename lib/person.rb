@@ -26,4 +26,12 @@ class Person
     end
   end
 
+  define_singleton_method(:get_all_usernames) do
+    all_names = []
+    @@people.each() do |person|
+      all_names.push(person.get_name())
+    end
+    all_names
+  end
+
 end
